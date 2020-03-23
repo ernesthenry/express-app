@@ -5,6 +5,13 @@ const app = express();
 
 const PORT = 3000;
 
+
+// this is for the public folder on path /
+app.use(express.static('public'))
+
+// this is for images folder on path images
+app.use('/images', express.static('images'))
+
 app.get("/", (req,res)=>
 res.json(data)
 )
