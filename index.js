@@ -27,6 +27,12 @@ app.get('/item/:id', (req,res, next) =>{
 console.log('Did you get the right data?')
 );
 
+app.get('/images', (req, res) => 
+res.download("images/ernest.jpg")
+// res.redirect('http://www.linkedin.com')
+// res.end()  Ends a call to an api
+)
+
 app.post("/newItem", (req,res)=>
 res.send(`a post request with /newItem route on port ${PORT}`)
 )
