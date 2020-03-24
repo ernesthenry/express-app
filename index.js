@@ -45,6 +45,7 @@ app.get('/item/:id', (req,res, next) =>{
 
 app.route('/item')
 .get((req, res) => {
+    throw new Error();
     // res.download("images/ernest.jpg")
     // res.redirect('http://www.linkedin.com')
     // res.end()  Ends a call to an api
@@ -59,6 +60,13 @@ app.route('/item')
 .delete((req,res)=>
     res.send(`a delete request with /item route on port ${PORT}`)
 )
+
+// Error handling function
+
+app.use((err,req,res,next) => {
+    console.error(err.stack);
+    res.status(500).send(`Red alert! Red alert! ${err.stack}`)
+})
 
 app.listen(PORT, ()=> {
     console.log(`Your server is running on port ${PORT}`)
