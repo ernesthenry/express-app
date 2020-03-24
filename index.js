@@ -14,6 +14,9 @@ app.use(express.urlencoded({extended: true}))
 // this is for the public folder on path /
 app.use(express.static('public'))
 
+// This is for proxies
+app.set('proxy', 'loopback')
+
 // this is for images folder on path images
 app.use('/images', express.static('images'))
 
