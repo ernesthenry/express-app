@@ -6,6 +6,11 @@ const app = express();
 const PORT = 3000;
 
 
+// method to use JSON
+// app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+
 // this is for the public folder on path /
 app.use(express.static('public'))
 
@@ -15,6 +20,11 @@ app.use('/images', express.static('images'))
 // app.get("/", (req,res)=>
 // res.json(data)
 // )
+
+app.post('/newItem', (req,res) =>{
+    console.log(req.body)
+    res.send(req.body)
+})
 
 app.get('/item/:id', (req,res, next) =>{
     // This is the middleware that pulls the data
